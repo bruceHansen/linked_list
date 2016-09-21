@@ -114,68 +114,33 @@ class LinkedList():
 
     	self.size -= 1
 
+
     def swap(self, index1, index2):
 
-    	index1 = int(index1)
-    	index2 = int(index2)
+        index1 = int(index1)
+        index2 = int(index2)
 
-    	my_check1 = self._check_bounds(index1)
-    	my_check2 = self._check_bounds(index2)
+        my_check1 = self._check_bounds(index1)
+        my_check2 = self._check_bounds(index2)
 
-    	if my_check1:
-    		return my_check1
+        if my_check1:
+            return my_check1
 
-    	if my_check2:
-    		return my_check2
+        if my_check2:
+            return my_check2
 
-    	if index1 > index2:
-    		temp = index2 
-    		index2 = index1
-    		index1 = temp 
+        
+        temp1 = self.head.next 
+        for item in range(index1):
+            temp1 = temp1.next 
 
-    	if abs(index1-index2) < 2:
-    		temp1 = self.head.next
-	    	for item in range(index1-1):
-	    		temp1 = temp1.next
+        temp2 = self.head.next
+        for item in range(index2):
+            temp2 = temp2.next 
 
-	    	temp2 = self.head.next
-	    	for item in range(index2-1):
-	    		temp2 = temp2.next
-
-	    	w = temp1
-	    	i = temp1.next
-	    	
-	    	S = temp2.next
-	    	d = temp2.next.next
-
-	    	w.next = S
-	    	S.next = i
-	    	i.next = d
-    		
-    	else:
-
-    		temp1 = self.head.next
-    		if index1 == 0:
-    			temp1 = self.head 
-	    	for item in range(index1-1):
-	    		temp1 = temp1.next
-
-	    	temp2 = self.head.next
-	    	for item in range(index2-1):
-	    		temp2 = temp2.next
-
-	    	a = temp1
-	    	e = temp1.next
-	    	r = temp1.next.next
-
-	    	l = temp2
-	    	o = temp2.next 
-	    	y = temp2.next.next 
-
-	    	a.next = o 
-	    	o.next = r 
-	    	l.next = e   
-	    	e.next = y 
+        ind1_value = temp1.value    
+        temp1.value = temp2.value 
+        temp2.value = ind1_value 
 
     def debug_print(self):
         my_list_items = []

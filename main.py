@@ -2,7 +2,7 @@ import csv
 import inspect
 from linked_list import LinkedList
 
-datacsv = open('data.csv')
+datacsv = open('data_example.csv')
 datareader = csv.reader(datacsv, delimiter=' ')
 
 line_number = 0
